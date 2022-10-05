@@ -1,0 +1,27 @@
+*{
+        margin: 0px;
+        padding: 0px;
+      }
+      
+      body {
+        font-family: sans-serif;
+      }
+      
+      .main-box{
+        display: inline-flex;
+        text-align: center;
+        /* border:1px blue solid; */
+        margin: 3px;
+      }
+      
+      .main-box label{
+        align-self: center;
+        font-weight: bold;
+      }
+      .inp-box{
+        margin: 5px;
+        border:1px gray dotted;
+      }
+      .inp-box span{
+        display: block;
+      }
