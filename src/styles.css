@@ -2,26 +2,30 @@
         margin: 0px;
         padding: 0px;
       }
-      
+#app form, #prompt{
+  margin: 5%;
+  width:auto;
+}      
+
+#prompt{
+  font-size: medium;
+}
       body {
         font-family: sans-serif;
       }
       
-      .main-box{
-        display: inline-flex;
-        text-align: center;
-        /* border:1px blue solid; */
-        margin: 3px;
-      }
-      
-      .main-box label{
+      .main-box :first-child {
         align-self: center;
         font-weight: bold;
       }
+
       .inp-box{
-        margin: 5px;
-        border:1px gray dotted;
+        display: contents;
+        margin: 3px;
+        margin-left: 5px !important;
       }
-      .inp-box span{
-        display: block;
+
+      .inp-box input{
+        font-size: 50px;
       }
+    
