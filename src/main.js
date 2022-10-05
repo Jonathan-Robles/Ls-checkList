@@ -15,18 +15,23 @@ fetch(URL_BASE)
 
     for (const key in data) {
       
-        const label = document.createElement("label");
+      const mainDiv = document.createElement("div");
+        const lblSpan = document.createElement("span");
         const input = document.createElement("input");
-        const mainBox = document.createElement("div");
 
-        mainBox.setAttribute('class','main-box');
+        mainDiv.setAttribute('class','main-box input-group input-group-lg');
+
         input.setAttribute('name', key);
-        label.textContent = key + ' :';
+        input.setAttribute('class', 'form-control');
+
+        lblSpan.textContent = key + ' :';
+        lblSpan.setAttribute('class', 'input-group-text')
+        
 // Append elements            
-        mainBox.appendChild(label);
+        mainDiv.appendChild(lblSpan);
 // Set attributes
         if (Array.isArray(data[key]) === true) {
-
+              
               data[key].forEach((arr)=>{
                 console.log(arr);
                 console.log(key);
@@ -35,45 +40,48 @@ fetch(URL_BASE)
                 const radioInp = document.createElement("input");
                 const span = document.createElement("span");
 // Set attributes              
-                inpBox.setAttribute('class','inp-box');
+                inpBox.setAttribute('class','inp-box input-group-text');
                 radioInp.setAttribute('name', key);
                 radioInp.setAttribute('value', arr);
                 radioInp.setAttribute('type', 'radio');
+                span.setAttribute('class', 'i')
                 span.textContent = arr;
 // Append elements                  
-                inpBox.appendChild(span);
                 inpBox.appendChild(radioInp);
-                mainBox.appendChild(inpBox);
-                myForm.appendChild(mainBox);
-                
+                inpBox.appendChild(span);
+                mainDiv.appendChild(inpBox);
+                myForm.appendChild(mainDiv);
               })
                 
               }else{
-                mainBox.appendChild(input);
-                form.appendChild(mainBox);
+                mainDiv.appendChild(input);
+                form.appendChild(mainDiv);
                 
               }
-       
-              myForm.innerHTML += "<br>";       
-      
     }
     const subInput = document.createElement("button");
-    subInput.innerHTML = 'sub';
+    subInput.innerHTML = 'Submit';
     subInput.setAttribute("type", "submit");
+    subInput.setAttribute("class", "btn btn-primary");
+
     myForm.appendChild(subInput);
 
   });
 
   const form = document.getElementById("form");
+  const myPrompt = document.getElementById("prompt");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     const result = new FormData(form);
     
     let x = [...result];
+    let promp = '';
       console.log(x);
       x.forEach(function(y){
         console.log()
-          document.body.innerHTML +=`  ${y[0]} : ${y[1]}  <br>`;
+        promp +=`  ${y[0]} : ${y[1]}  <br>`;
+          
       })
+      myPrompt.innerHTML = promp;
   });  
