@@ -18,7 +18,7 @@ fetch(URL_BASE)
       const lblSpan = document.createElement("span");
       const input = document.createElement("input");
       // Set attributes
-      mainDiv.setAttribute("class", "main-box input-group input-group-lg");
+      mainDiv.setAttribute("class", "main-box input-group input-group-sm");
 
       input.setAttribute("name", key);
       input.setAttribute("class", "form-control");
